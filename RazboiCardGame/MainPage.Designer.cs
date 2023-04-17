@@ -28,19 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panelMenu = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // Form1
+            // panelMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.panelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMenu.Location = new System.Drawing.Point(0, 23);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(1686, 639);
+            this.panelMenu.TabIndex = 0;
+            // 
+            // MainPage
+            // 
+            this.ClientSize = new System.Drawing.Size(1686, 666);
+            this.Controls.Add(this.panelMenu);
+            this.Name = "MainPage";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        
+        
+        private Panel panelMenu;
     }
 }

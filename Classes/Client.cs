@@ -16,7 +16,7 @@ namespace Classes
         public Client()
         {
             client = new TcpClient();
-            client.Connect("272-738-082", 8888);
+            client.Connect("272-738-082", 8888); //272-738-043 schimbi aici
             stream = client.GetStream();
           
         }

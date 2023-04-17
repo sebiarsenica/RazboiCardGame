@@ -14,7 +14,12 @@ namespace ConsoleAppTestt
         static void Main(string[] args)
         {
             Listener l = new Listener();
-            Console.ReadKey();
+           
+
+            Client c = new Client();
+            c.sendMessage();
+            c.closeClient();
+
         }
     }
 }
