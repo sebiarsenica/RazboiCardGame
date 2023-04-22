@@ -13,11 +13,13 @@ namespace RazboiCardGame
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Teal900, Primary.Cyan900, Primary.Red700, Accent.Cyan100, TextShade.WHITE);
+            openChildForm(new Game());
         }
 
         private void MainPage_Load(object sender, EventArgs e)
         {
             
+           
         }
 
         private Form activeForm = null;
@@ -38,6 +40,6 @@ namespace RazboiCardGame
 
        
 
-        //openChildForm(new form3())
+        
     }
 }

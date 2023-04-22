@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace RazboiCardGame
 {
     public partial class Game : Form
@@ -22,7 +23,7 @@ namespace RazboiCardGame
 
         private void Game_Load(object sender, EventArgs e)
         {
-
+            Player1_pictureBox.Image = Properties.Resources.K_trefla;
         }
     }
 }
