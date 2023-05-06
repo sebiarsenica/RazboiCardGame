@@ -45,5 +45,11 @@
     <Compile Include="Listener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RazboiCardGame\RazboiCardGame.csproj">
+      <Project>{4e52030c-20bb-41d5-a4df-0650646e39a8}</Project>
+      <Name>RazboiCardGame</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

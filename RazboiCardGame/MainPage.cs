@@ -18,8 +18,8 @@ namespace RazboiCardGame
 
         private void MainPage_Load(object sender, EventArgs e)
         {
-            
-           
+
+
         }
 
         private Form activeForm = null;
@@ -38,8 +38,8 @@ namespace RazboiCardGame
             childForm.Show();
         } //Open new form
 
-       
 
-        
+
+
     }
 }

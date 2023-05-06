@@ -13,19 +13,24 @@ namespace Classes
         private TcpListener listener;
         private TcpClient client;
         private NetworkStream stream;
+        
 
         public Listener()
         {
             listener = new TcpListener(IPAddress.Any, 8888);
             listener.Start();
-            Console.WriteLine("Waiting for connection..."); 
             client = listener.AcceptTcpClient();
             stream = client.GetStream();
+        }
 
-            byte[] message = new byte[256];
-            int bytesRead = stream.Read(message, 0, message.Length);
-            string receivedMessage = System.Text.Encoding.ASCII.GetString(message, 0, bytesRead);
-            Console.WriteLine("Received message: {0}", receivedMessage);
+        public async void ListenForMessages()
+        {
+            while (true)
+            {
+                byte[] message = new byte[256];
+                int bytesRead = stream.Read(message, 0, message.Length);
+                string receivedMessage = System.Text.Encoding.ASCII.GetString(message, 0, bytesRead);
+            }
         }
 
         public void Close()

@@ -25,10 +25,20 @@ namespace Classes
             stream.Write(message, 0, message.Length);
         }
 
-        public void sendCurrentCard(string card)
+        public void sendCurrentCard(string card, int player)
         {
-            byte[] message = System.Text.Encoding.ASCII.GetBytes(card);
+            if (player == 1) card = "1" + card; 
+            else if(player ==2) card = "2" + card;
+            byte[] message = System.Text.Encoding.ASCII.GetBytes(card + "\n");
             stream.Write(message, 0, message.Length);
+            
+        }
+
+        public void sendPlayerDeck(string card, int player)
+        {
+            if (player == 2) card = "d" + card;
+            byte[] message = System.Text.Encoding.ASCII.GetBytes(card + "\n"); 
+            stream.Write(message, 0 ,message.Length);
         }
 
         public void closeClient()
