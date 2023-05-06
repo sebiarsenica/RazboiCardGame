@@ -31,7 +31,6 @@ namespace Classes
             else if(player ==2) card = "2" + card;
             byte[] message = System.Text.Encoding.ASCII.GetBytes(card + "\n");
             stream.Write(message, 0, message.Length);
-            
         }
 
         public void sendPlayerDeck(string card, int player)

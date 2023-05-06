@@ -44,8 +44,8 @@ namespace RazboiCardGame
         private void Player1() //Initializes the connection if the current player is player 1
         {
             playerListener = new Listener(this);
-            new Thread(new ThreadStart(playerListener.ListenForMessages)).Start();
             new Thread(new ThreadStart(playerListener.StartListener)).Start();
+            new Thread(new ThreadStart(playerListener.ListenForMessages)).Start();
             playerClient = new Client("272-738-082");
         }
 
