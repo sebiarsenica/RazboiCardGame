@@ -386,20 +386,29 @@ namespace RazboiCardGame
 
         private void DrawCard_button_Click(object sender, EventArgs e)
         {
+
             if (currentPlayerCards.Count == 0)
             {
-                currentPlayerCards = takenCards;
+                currentPlayerCards = new List<string>(takenCards); 
                 takenCards.Clear();
             }
+
             var lastCard = currentPlayerCards.Last();
             currentPlayerCards.Remove(lastCard);
             playerClient.sendCurrentCard(lastCard, currentPlayer);
+
             if (currentPlayer == 1)
             {
                 player1CardName = lastCard;
                 DrawCardPlayer1(lastCard);
+                Player1_label_noc.Invoke(new Action(() => Player1_label_noc.Text = (currentPlayerCards.Count() + takenCards.Count()).ToString()));
+                playerClient.sendCardCount((currentPlayerCards.Count() + takenCards.Count()).ToString(), 1);
             }
-            else if (currentPlayer == 2) DrawCardPlayer2(lastCard);
+            else if (currentPlayer == 2) { 
+                DrawCardPlayer2(lastCard);
+                Player2_label_noc.Invoke(new Action(() => Player2_label_noc.Text = (currentPlayerCards.Count() + takenCards.Count()).ToString()));
+                playerClient.sendCardCount((currentPlayerCards.Count() + takenCards.Count()).ToString(), 2);
+            }
 
             if (player1CardName != "" && player2CardName != "")
                 CompileWinner();
