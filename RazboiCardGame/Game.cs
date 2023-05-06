@@ -184,7 +184,7 @@ namespace RazboiCardGame
                 case '4': Player1_UpperLabel.Text = "4"; Player1_BottomLabel.Text = "4"; break;
                 case '5': Player1_UpperLabel.Text = "5"; Player1_BottomLabel.Text = "5"; break;
                 case '6': Player1_UpperLabel.Text = "6"; Player1_BottomLabel.Text = "6"; break;
-                case '7': Player1_UpperLabel.Text = "6"; Player1_BottomLabel.Text = "7"; break;
+                case '7': Player1_UpperLabel.Text = "7"; Player1_BottomLabel.Text = "7"; break;
                 case '8': Player1_UpperLabel.Text = "8"; Player1_BottomLabel.Text = "8"; break;
                 case '9': Player1_UpperLabel.Text = "9"; Player1_BottomLabel.Text = "9"; break;
                 case 'A': Player1_UpperLabel.Text = "A"; Player1_BottomLabel.Text = "A"; break;
