@@ -484,7 +484,7 @@ namespace RazboiCardGame
             }
 
             await Task.Delay(2000);
-            Winner_label.Text = "";
+            Winner_label.Invoke(new Action(() => Winner_label.Text = ""));
         }
     }
 }
