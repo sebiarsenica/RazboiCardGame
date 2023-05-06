@@ -18,7 +18,7 @@ namespace RazboiCardGame
 {
     public partial class Game : Form
     {
-        private int currentPlayer = 2;
+        private int currentPlayer = 1;
         private Client playerClient;
         private Listener playerListener;
         Dictionary<string, byte[]> gameCards = new Dictionary<string, byte[]>();
@@ -54,8 +54,8 @@ namespace RazboiCardGame
             playerListener = new Listener(this);
             new Thread(new ThreadStart(playerListener.StartListener)).Start();
             new Thread(new ThreadStart(playerListener.ListenForMessages)).Start();
-            //playerClient = new Client("272-738-043");
-            playerClient = new Client("localhost");
+            playerClient = new Client("272-738-043");
+            
         }
 
         public void InitializeCardList()
