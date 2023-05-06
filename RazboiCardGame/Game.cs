@@ -18,7 +18,7 @@ namespace RazboiCardGame
 {
     public partial class Game : Form
     {
-        private int currentPlayer = 2;
+        private int currentPlayer = 1;
         private Client playerClient;
         private Listener playerListener;
         Dictionary<string, byte[]> gameCards = new Dictionary<string, byte[]>();
@@ -168,9 +168,57 @@ namespace RazboiCardGame
             switch (card)
             {
                 case "2-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
-                case "J-inima-neagra": ms = new System.IO.MemoryStream(gameCards["J-inima-neagra"]); break;
+                case "2-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
+                case "2-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "2-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "3-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "3-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
+                case "3-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "3-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "4-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "4-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
+                case "4-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "4-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "5-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "5-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
+                case "5-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "5-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "6-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "6-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
+                case "6-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "6-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "7-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "7-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
+                case "7-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "7-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "8-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "8-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
+                case "8-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "8-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "9-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "9-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
+                case "9-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "9-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "10-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "10-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
                 case "10-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "10-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "A-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "A-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
                 case "A-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "A-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "J-inima-neagra": ms = new System.IO.MemoryStream(gameCards["J-inima-neagra"]); break;
+                case "J-inima-rosie": ms = new System.IO.MemoryStream(gameCards["J-inima-rosie"]); break;
+                case "J-trefla": ms = new System.IO.MemoryStream(gameCards["J-trefla"]); break;
+                case "J-romb": ms = new System.IO.MemoryStream(gameCards["J-romb"]); break;
+                case "Q-inima-neagra": ms = new System.IO.MemoryStream(gameCards["Q-inima-neagra"]); break;
+                case "Q-inima-rosie": ms = new System.IO.MemoryStream(gameCards["Q-inima-rosie"]); break;
+                case "Q-trefla": ms = new System.IO.MemoryStream(gameCards["Q-trefla"]); break;
+                case "Q-romb": ms = new System.IO.MemoryStream(gameCards["Q-romb"]); break;
+                case "K-inima-neagra": ms = new System.IO.MemoryStream(gameCards["K-inima-neagra"]); break;
+                case "K-inima-rosie": ms = new System.IO.MemoryStream(gameCards["K-inima-rosie"]); break;
+                case "K-trefla": ms = new System.IO.MemoryStream(gameCards["K-trefla"]); break;
+                case "K-romb": ms = new System.IO.MemoryStream(gameCards["K-romb"]); break;
                 default: ms = new System.IO.MemoryStream(gameCards["spate-carte"]); break;
             }
 
@@ -201,9 +249,58 @@ namespace RazboiCardGame
 
             switch (card)
             {
-                case "J-inima-neagra": ms = new System.IO.MemoryStream(gameCards["J-inima-neagra"]); break;
-                case "A-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "2-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "2-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
+                case "2-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "2-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "3-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "3-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
+                case "3-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "3-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "4-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "4-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
+                case "4-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "4-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "5-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "5-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
+                case "5-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "5-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "6-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "6-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
+                case "6-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "6-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "7-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "7-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
+                case "7-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "7-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "8-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "8-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
+                case "8-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "8-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "9-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "9-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
+                case "9-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "9-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "10-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "10-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
                 case "10-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "10-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "A-inima-neagra": ms = new System.IO.MemoryStream(gameCards["inima-neagra"]); break;
+                case "A-inima-rosie": ms = new System.IO.MemoryStream(gameCards["inima-rosie"]); break;
+                case "A-trefla": ms = new System.IO.MemoryStream(gameCards["trefla"]); break;
+                case "A-romb": ms = new System.IO.MemoryStream(gameCards["romb"]); break;
+                case "J-inima-neagra": ms = new System.IO.MemoryStream(gameCards["J-inima-neagra"]); break;
+                case "J-inima-rosie": ms = new System.IO.MemoryStream(gameCards["J-inima-rosie"]); break;
+                case "J-trefla": ms = new System.IO.MemoryStream(gameCards["J-trefla"]); break;
+                case "J-romb": ms = new System.IO.MemoryStream(gameCards["J-romb"]); break;
+                case "Q-inima-neagra": ms = new System.IO.MemoryStream(gameCards["Q-inima-neagra"]); break;
+                case "Q-inima-rosie": ms = new System.IO.MemoryStream(gameCards["Q-inima-rosie"]); break;
+                case "Q-trefla": ms = new System.IO.MemoryStream(gameCards["Q-trefla"]); break;
+                case "Q-romb": ms = new System.IO.MemoryStream(gameCards["Q-romb"]); break;
+                case "K-inima-neagra": ms = new System.IO.MemoryStream(gameCards["K-inima-neagra"]); break;
+                case "K-inima-rosie": ms = new System.IO.MemoryStream(gameCards["K-inima-rosie"]); break;
+                case "K-trefla": ms = new System.IO.MemoryStream(gameCards["K-trefla"]); break;
+                case "K-romb": ms = new System.IO.MemoryStream(gameCards["K-romb"]); break;
                 default: ms = new System.IO.MemoryStream(gameCards["spate-carte"]); break;
             }
 
