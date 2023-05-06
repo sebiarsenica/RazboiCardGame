@@ -24,9 +24,8 @@ namespace RazboiCardGame
         Dictionary<string, byte[]> gameCards = new Dictionary<string, byte[]>();
         private List<string> Cards = new List<string>();
         private List<string> currentPlayerCards = new List<string>();
-        private List<int> takenCards = new List<int>();
-        private int player1Card = 0;
-        private int player2Card = 0;
+        private List<string> takenCards = new List<string>();
+        private string player1CardName = "", player2CardName = "";
 
         public Game()
         {
@@ -36,9 +35,12 @@ namespace RazboiCardGame
 
         private void Game_Load(object sender, EventArgs e)
         {
+            Winner_label.Text = "";
             if (currentPlayer == 1) Player1();
             else if (currentPlayer == 2) Player2();
             InitializeCardList();
+            Player1_label_noc.Text = currentPlayerCards.Count.ToString();
+            Player2_label_noc.Text = "26";
         }
 
         private void Player1() //Initializes the connection if the current player is player 1
@@ -55,7 +57,7 @@ namespace RazboiCardGame
             new Thread(new ThreadStart(playerListener.StartListener)).Start();
             new Thread(new ThreadStart(playerListener.ListenForMessages)).Start();
             playerClient = new Client("272-738-043");
-            
+
         }
 
         public void InitializeCardList()
@@ -335,28 +337,44 @@ namespace RazboiCardGame
             {
                 string modifiedMessage = message.Substring(1);
                 Player2_UpperLabel.Invoke(new Action(() => DrawCardPlayer2(modifiedMessage)));
-                switch (modifiedMessage.ElementAt(0))
-                {
-                    case '1': player2Card = 10; break;
-                    case '2': player2Card = 2; break;
-                    case '3': player2Card = 3; break;
-                    case '4': player2Card = 4; break;
-                    case '5': player2Card = 5; break;
-                    case '6': player2Card = 6; break;
-                    case '7': player2Card = 7; break;
-                    case '8': player2Card = 8; break;
-                    case '9': player2Card = 9; break;
-                    case 'A': player2Card = 11; break;
-                    case 'J': player2Card = 12; break;
-                    case 'Q': player2Card = 13; break;
-                    case 'K': player2Card = 14; break;
-                    default: break;
-                }
+                player2CardName = modifiedMessage;
+                if (player1CardName != "" && player2CardName != "")
+                    CompileWinner();
             }
             else if (message.ElementAt(0) == 'd')
-            { 
-                string modifiedMessage = message.Substring(1);
-                currentPlayerCards.Add(modifiedMessage);
+            {
+                if (currentPlayer == 2)
+                {
+                    string modifiedMessage = message.Substring(1);
+                    currentPlayerCards.Add(modifiedMessage);
+                }
+            }
+            else if (message.ElementAt(0) == 't')
+            {
+                string messageWithoutT = message.Substring(1);
+                if (messageWithoutT.ElementAt(0) == '1')
+                {
+                    string card = messageWithoutT.Substring(1);
+                    takenCards.Add(card);
+                }
+                else if (messageWithoutT.ElementAt(0) == '2')
+                {
+                    string card = messageWithoutT.Substring(1);
+                    takenCards.Add(card);
+                }
+            }
+            else if(message.ElementAt(0) == 'c')
+            {
+                string messageWithoutC = message.Substring(1);
+                if(messageWithoutC.ElementAt(0) == '1')
+                {
+                    string count = messageWithoutC.Substring(1);
+                    Player1_label_noc.Invoke(new Action(() => Player1_label_noc.Text = count));
+                }else if(messageWithoutC.ElementAt(0) == '2')
+                {
+                    string count = messageWithoutC.Substring(1);
+                    Player2_label_noc.Invoke(new Action(() => Player2_label_noc.Text = count));
+                }
             }
         }
 
@@ -368,33 +386,105 @@ namespace RazboiCardGame
 
         private void DrawCard_button_Click(object sender, EventArgs e)
         {
-            //Last card of the list 
+            if (currentPlayerCards.Count == 0)
+            {
+                currentPlayerCards = takenCards;
+                takenCards.Clear();
+            }
             var lastCard = currentPlayerCards.Last();
             currentPlayerCards.Remove(lastCard);
             playerClient.sendCurrentCard(lastCard, currentPlayer);
             if (currentPlayer == 1)
             {
-                switch (lastCard.ElementAt(0))
-                {
-                    case '1': player1Card = 10; break;
-                    case '2': player1Card = 2; break;
-                    case '3': player1Card = 3; break;
-                    case '4': player1Card = 4; break;
-                    case '5': player1Card = 5; break;
-                    case '6': player1Card = 6; break;
-                    case '7': player1Card = 7; break;
-                    case '8': player1Card = 8; break;
-                    case '9': player1Card = 9; break;
-                    case 'A': player1Card = 11; break;
-                    case 'J': player1Card = 12; break;
-                    case 'Q': player1Card = 13; break;
-                    case 'K': player1Card = 14; break;
-                    default: break;
-                }
+                player1CardName = lastCard;
                 DrawCardPlayer1(lastCard);
             }
             else if (currentPlayer == 2) DrawCardPlayer2(lastCard);
-           
+
+            if (player1CardName != "" && player2CardName != "")
+                CompileWinner();
+
+        }
+
+        private async void CompileWinner()
+        {
+            int player1Card = 0, player2Card = 0;
+
+            switch (player1CardName.ElementAt(0))
+            {
+                case '1': player1Card = 10; break;
+                case '2': player1Card = 2; break;
+                case '3': player1Card = 3; break;
+                case '4': player1Card = 4; break;
+                case '5': player1Card = 5; break;
+                case '6': player1Card = 6; break;
+                case '7': player1Card = 7; break;
+                case '8': player1Card = 8; break;
+                case '9': player1Card = 9; break;
+                case 'A': player1Card = 11; break;
+                case 'J': player1Card = 12; break;
+                case 'Q': player1Card = 13; break;
+                case 'K': player1Card = 14; break;
+                default: break;
+            }
+
+            switch (player2CardName.ElementAt(0))
+            {
+                case '1': player2Card = 10; break;
+                case '2': player2Card = 2; break;
+                case '3': player2Card = 3; break;
+                case '4': player2Card = 4; break;
+                case '5': player2Card = 5; break;
+                case '6': player2Card = 6; break;
+                case '7': player2Card = 7; break;
+                case '8': player2Card = 8; break;
+                case '9': player2Card = 9; break;
+                case 'A': player2Card = 11; break;
+                case 'J': player2Card = 12; break;
+                case 'Q': player2Card = 13; break;
+                case 'K': player2Card = 14; break;
+                default: break;
+            }
+
+            if ((player1Card > player2Card) || (player1Card == 11 && player2Card != 11))
+            {
+                takenCards.Add(player1CardName);
+                takenCards.Add(player2CardName);
+                player1CardName = "";
+                player2CardName = "";
+                Winner_label.Invoke(new Action(() => Winner_label.Text = "Player 1 won!"));
+            
+            }
+            else if ((player1Card < player2Card) || (player2Card == 11 && player1Card != 11))
+            {
+                playerClient.sendTakenCard(player1CardName, 2);
+                playerClient.sendTakenCard(player2CardName, 2);
+                player1CardName = "";
+                player2CardName = "";
+                Winner_label.Invoke(new Action(() => Winner_label.Text = "Player 2 won!"));
+            }
+            else if (player1Card == player2Card)
+            {
+                takenCards.Add(player1CardName);
+                playerClient.sendTakenCard(player2CardName, 2);
+                player1CardName = "";
+                player2CardName = "";
+                Winner_label.Invoke(new Action(() => Winner_label.Text = "Tie"));
+            }
+
+            if (currentPlayer == 1)
+            {
+                Player1_label_noc.Text = (currentPlayerCards.Count() + takenCards.Count()).ToString();
+                playerClient.sendCardCount((currentPlayerCards.Count() + takenCards.Count()).ToString(), 1);
+            }
+            else if (currentPlayer == 2)
+            {
+                Player2_label_noc.Text = (currentPlayerCards.Count() + takenCards.Count()).ToString();
+                playerClient.sendCardCount((currentPlayerCards.Count() + takenCards.Count()).ToString(), 2);
+            }
+
+            await Task.Delay(2000);
+            Winner_label.Text = "";
         }
     }
 }

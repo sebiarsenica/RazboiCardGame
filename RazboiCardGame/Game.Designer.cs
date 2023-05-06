@@ -41,6 +41,7 @@
             label3 = new Label();
             Player2_label_noc = new Label();
             DrawCard_button = new Button();
+            Winner_label = new Label();
             ((System.ComponentModel.ISupportInitialize)Player1_pictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Player2_pictureBox).BeginInit();
             panel1.SuspendLayout();
@@ -191,11 +192,24 @@
             DrawCard_button.UseVisualStyleBackColor = true;
             DrawCard_button.Click += DrawCard_button_Click;
             // 
+            // Winner_label
+            // 
+            Winner_label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Winner_label.AutoSize = true;
+            Winner_label.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Winner_label.ForeColor = Color.IndianRed;
+            Winner_label.Location = new Point(657, 514);
+            Winner_label.Name = "Winner_label";
+            Winner_label.Size = new Size(68, 50);
+            Winner_label.TabIndex = 11;
+            Winner_label.Text = "\"\" ";
+            // 
             // Game
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1349, 596);
+            Controls.Add(Winner_label);
             Controls.Add(DrawCard_button);
             Controls.Add(label3);
             Controls.Add(Player2_label_noc);
@@ -233,5 +247,6 @@
         private Label label3;
         private Label Player2_label_noc;
         private Button DrawCard_button;
+        private Label Winner_label;
     }
 }

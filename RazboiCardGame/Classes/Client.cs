@@ -40,6 +40,24 @@ namespace Classes
             stream.Write(message, 0 ,message.Length);
         }
 
+        public void sendTakenCard(string card, int player)
+        {
+            if (player == 1) card = "1" + card; 
+            else if(player ==2) card = "2" + card;
+            card = "t" + card;
+            byte[] message = System.Text.Encoding.ASCII.GetBytes(card + "\n");
+            stream.Write(message, 0, message.Length);
+        }
+
+        public void sendCardCount(string count, int player)
+        {
+            if (player == 1) count = "1" + count;
+            else if (player == 2) count = "2" + count;
+            count = "c" + count;
+            byte[] message = System.Text.Encoding.ASCII.GetBytes(count + "\n");
+            stream.Write(message, 0, message.Length);
+        }
+
         public void closeClient()
         {
             client.Close();

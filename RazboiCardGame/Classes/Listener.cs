@@ -34,7 +34,7 @@ namespace Classes
         {
             while (true)
             {
-                byte[] message = new byte[256];
+                byte[] message = new byte[4096];
                 if (stream is not null)
                 {
                     int bytesRead = stream.Read(message, 0, message.Length);
