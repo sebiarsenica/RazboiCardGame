@@ -1,6 +1,7 @@
-using Classes;
+﻿using Classes;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using System.Drawing.Text;
 
 namespace RazboiCardGame
 {
@@ -13,13 +14,18 @@ namespace RazboiCardGame
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Teal900, Primary.Cyan900, Primary.Red700, Accent.Cyan100, TextShade.WHITE);
-            openChildForm(new Game());
+
         }
 
         private void MainPage_Load(object sender, EventArgs e)
         {
 
-
+            PrivateFontCollection privateFontCollection = new PrivateFontCollection();
+            privateFontCollection.AddFontFile("‪C:\\Users\\victo\\AppData\\Local\\Microsoft\\Windows\\Fonts\\ARCADECLASSIC.TTF");
+            foreach (Control c in this.Controls)
+            {
+                c.Font = new Font(privateFontCollection.Families[0], 15, FontStyle.Regular);
+            }
         }
 
         private Form activeForm = null;
@@ -38,8 +44,46 @@ namespace RazboiCardGame
             childForm.Show();
         } //Open new form
 
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void linkLabel1_MouseHover(object sender, EventArgs e)
+        {
+            linkLabel1.BackColor = Color.Transparent;
+            linkLabel1.LinkColor = Color.White;
+        }
+
+        private void linkLabel1_MouseLeave(object sender, EventArgs e)
+        {
+            linkLabel1.BackColor = Color.Transparent;
+            linkLabel1.LinkColor = Color.FromArgb(128, 0, 128);
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            openChildForm(new Game());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialFlatButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
