@@ -18,7 +18,7 @@ namespace RazboiCardGame
 {
     public partial class Game : Form
     {
-        private int currentPlayer = 1;
+        private int currentPlayer = 2;
         private Client playerClient;
         private Listener playerListener;
         Dictionary<string, byte[]> gameCards = new Dictionary<string, byte[]>();
@@ -217,7 +217,7 @@ namespace RazboiCardGame
                 case '4': Player2_UpperLabel.Text = "4"; Player2_BottomLabel.Text = "4"; break;
                 case '5': Player2_UpperLabel.Text = "5"; Player2_BottomLabel.Text = "5"; break;
                 case '6': Player2_UpperLabel.Text = "6"; Player2_BottomLabel.Text = "6"; break;
-                case '7': Player2_UpperLabel.Text = "6"; Player2_BottomLabel.Text = "7"; break;
+                case '7': Player2_UpperLabel.Text = "7"; Player2_BottomLabel.Text = "7"; break;
                 case '8': Player2_UpperLabel.Text = "8"; Player2_BottomLabel.Text = "8"; break;
                 case '9': Player2_UpperLabel.Text = "9"; Player2_BottomLabel.Text = "9"; break;
                 case 'A': Player2_UpperLabel.Text = "A"; Player2_BottomLabel.Text = "A"; break;
