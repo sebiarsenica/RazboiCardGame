@@ -18,7 +18,7 @@ namespace RazboiCardGame
 {
     public partial class Game : Form
     {
-        private int currentPlayer = 1;
+        private int currentPlayer = 2;
         private Client playerClient;
         private Listener playerListener;
         Dictionary<string, byte[]> gameCards = new Dictionary<string, byte[]>();
@@ -56,7 +56,8 @@ namespace RazboiCardGame
             playerListener = new Listener(this);
             new Thread(new ThreadStart(playerListener.StartListener)).Start();
             new Thread(new ThreadStart(playerListener.ListenForMessages)).Start();
-            playerClient = new Client("272-738-043");
+           // playerClient = new Client("272-738-043");
+           playerClient = new Client("localhost");
 
         }
 
@@ -363,18 +364,43 @@ namespace RazboiCardGame
                     takenCards.Add(card);
                 }
             }
-            else if(message.ElementAt(0) == 'c')
+            else if (message.ElementAt(0) == 'c')
             {
                 string messageWithoutC = message.Substring(1);
-                if(messageWithoutC.ElementAt(0) == '1')
+                if (messageWithoutC.ElementAt(0) == '1')
                 {
                     string count = messageWithoutC.Substring(1);
                     Player1_label_noc.Invoke(new Action(() => Player1_label_noc.Text = count));
-                }else if(messageWithoutC.ElementAt(0) == '2')
+                }
+                else if (messageWithoutC.ElementAt(0) == '2')
                 {
                     string count = messageWithoutC.Substring(1);
                     Player2_label_noc.Invoke(new Action(() => Player2_label_noc.Text = count));
                 }
+            }
+            else if(message.ElementAt(0) == 'w')
+            {
+                string messageWithoutW = message.Substring(1);
+                if (messageWithoutW.ElementAt(0) == '1')
+                { 
+                  if(currentPlayer == 1)
+                        Winner_label.Invoke(new Action(() => Winner_label.Text = "You won!"));
+
+                }
+                else if (messageWithoutW.ElementAt(0)== '2')
+                {
+                    if(currentPlayer == 2)
+                        Winner_label.Invoke(new Action(() => Winner_label.Text = "You won!"));
+                }
+            }
+            else if(message.ElementAt(0) == 'm')
+            {
+                string messageWithoutM = message.Substring(1);
+                if(currentPlayer == 2)
+                {
+                    Winner_label.Invoke(new Action(() => Winner_label.Text = messageWithoutM));
+                }
+                DrawCard_button.Enabled = true;
             }
         }
 
@@ -386,16 +412,24 @@ namespace RazboiCardGame
 
         private void DrawCard_button_Click(object sender, EventArgs e)
         {
-
             if (currentPlayerCards.Count == 0)
             {
-                currentPlayerCards = new List<string>(takenCards); 
+                if (takenCards.Count == 0)
+                {
+                    if (currentPlayer == 1)
+                    { playerClient.sendWinnerWinner(2); Winner_label.Invoke(new Action(() => Winner_label.Text = "You lost!")); }
+                    else
+                    if (currentPlayer == 2) { playerClient.sendWinnerWinner(1); Winner_label.Invoke(new Action(() => Winner_label.Text = "You lost!")); }
+                    return;
+                }
+                currentPlayerCards = new List<string>(takenCards);
                 takenCards.Clear();
             }
 
             var lastCard = currentPlayerCards.Last();
             currentPlayerCards.Remove(lastCard);
             playerClient.sendCurrentCard(lastCard, currentPlayer);
+            DrawCard_button.Enabled = false;
 
             if (currentPlayer == 1)
             {
@@ -404,7 +438,8 @@ namespace RazboiCardGame
                 Player1_label_noc.Invoke(new Action(() => Player1_label_noc.Text = (currentPlayerCards.Count() + takenCards.Count()).ToString()));
                 playerClient.sendCardCount((currentPlayerCards.Count() + takenCards.Count()).ToString(), 1);
             }
-            else if (currentPlayer == 2) { 
+            else if (currentPlayer == 2)
+            {
                 DrawCardPlayer2(lastCard);
                 Player2_label_noc.Invoke(new Action(() => Player2_label_noc.Text = (currentPlayerCards.Count() + takenCards.Count()).ToString()));
                 playerClient.sendCardCount((currentPlayerCards.Count() + takenCards.Count()).ToString(), 2);
@@ -462,7 +497,7 @@ namespace RazboiCardGame
                 player1CardName = "";
                 player2CardName = "";
                 Winner_label.Invoke(new Action(() => Winner_label.Text = "Player 1 won!"));
-            
+                playerClient.sendLabelWinnerMessage("Player 1 won!");
             }
             else if ((player1Card < player2Card) || (player2Card == 11 && player1Card != 11))
             {
@@ -471,6 +506,7 @@ namespace RazboiCardGame
                 player1CardName = "";
                 player2CardName = "";
                 Winner_label.Invoke(new Action(() => Winner_label.Text = "Player 2 won!"));
+                playerClient.sendLabelWinnerMessage("Player 2 won!");
             }
             else if (player1Card == player2Card)
             {
@@ -479,6 +515,7 @@ namespace RazboiCardGame
                 player1CardName = "";
                 player2CardName = "";
                 Winner_label.Invoke(new Action(() => Winner_label.Text = "Tie"));
+                playerClient.sendLabelWinnerMessage("Tie!");
             }
 
             if (currentPlayer == 1)

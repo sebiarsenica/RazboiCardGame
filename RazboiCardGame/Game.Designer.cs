@@ -54,7 +54,7 @@
             Player1_pictureBox.Location = new Point(12, 12);
             Player1_pictureBox.Name = "Player1_pictureBox";
             Player1_pictureBox.Size = new Size(320, 401);
-            Player1_pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+            Player1_pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             Player1_pictureBox.TabIndex = 0;
             Player1_pictureBox.TabStop = false;
             // 
@@ -64,7 +64,7 @@
             Player2_pictureBox.Location = new Point(14, 12);
             Player2_pictureBox.Name = "Player2_pictureBox";
             Player2_pictureBox.Size = new Size(320, 401);
-            Player2_pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+            Player2_pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             Player2_pictureBox.TabIndex = 1;
             Player2_pictureBox.TabStop = false;
             // 
@@ -198,7 +198,7 @@
             Winner_label.AutoSize = true;
             Winner_label.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
             Winner_label.ForeColor = Color.IndianRed;
-            Winner_label.Location = new Point(657, 514);
+            Winner_label.Location = new Point(656, 511);
             Winner_label.Name = "Winner_label";
             Winner_label.Size = new Size(68, 50);
             Winner_label.TabIndex = 11;

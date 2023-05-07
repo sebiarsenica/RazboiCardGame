@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Classes
 {
@@ -55,6 +56,24 @@ namespace Classes
             else if (player == 2) count = "2" + count;
             count = "c" + count;
             byte[] message = System.Text.Encoding.ASCII.GetBytes(count + "\n");
+            stream.Write(message, 0, message.Length);
+        }
+
+        public void sendWinnerWinner(int player)
+        { string message = "";
+            if (player == 1)
+                message = "1" + message;
+            else if(player ==2) 
+                message = "2" + message;
+            message = "w" + message;
+            byte[] messagee = System.Text.Encoding.ASCII.GetBytes(message + "\n");
+            stream.Write(messagee, 0, messagee.Length);
+        }
+
+        public void sendLabelWinnerMessage(string msg)
+        {
+            msg = "m" + msg;
+            byte[] message = System.Text.Encoding.ASCII.GetBytes(msg + "\n");
             stream.Write(message, 0, message.Length);
         }
 

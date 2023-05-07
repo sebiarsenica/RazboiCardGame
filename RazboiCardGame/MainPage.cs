@@ -19,13 +19,15 @@ namespace RazboiCardGame
 
         private void MainPage_Load(object sender, EventArgs e)
         {
-
             PrivateFontCollection privateFontCollection = new PrivateFontCollection();
-            privateFontCollection.AddFontFile("‪C:\\Users\\victo\\AppData\\Local\\Microsoft\\Windows\\Fonts\\ARCADECLASSIC.TTF");
-            foreach (Control c in this.Controls)
+            //privateFontCollection.AddFontFile("‪C:\\Users\\victo\\AppData\\Local\\Microsoft\\Windows\\Fonts\\ARCADECLASSIC.TTF");
+            privateFontCollection.AddFontFile("D:\\ARCADECLASSIC.TTF");
+
+            foreach (Control c in panelMenu.Controls)
             {
                 c.Font = new Font(privateFontCollection.Families[0], 15, FontStyle.Regular);
             }
+
         }
 
         private Form activeForm = null;
@@ -44,15 +46,6 @@ namespace RazboiCardGame
             childForm.Show();
         } //Open new form
 
-        private void panelMenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void linkLabel1_MouseHover(object sender, EventArgs e)
         {
@@ -68,22 +61,18 @@ namespace RazboiCardGame
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            panelMenu.BackgroundImage = null;
+            foreach (Control c in panelMenu.Controls)
+            {
+                c.Visible = false;
+            }
+            
+
             openChildForm(new Game());
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
 
         }
 
-        private void materialFlatButton1_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

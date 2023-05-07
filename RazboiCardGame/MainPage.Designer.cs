@@ -53,22 +53,21 @@
             panelMenu.Controls.Add(label2);
             panelMenu.Controls.Add(linkLabel1);
             panelMenu.Controls.Add(label1);
-            panelMenu.Location = new Point(0, 23);
+            panelMenu.Location = new Point(2, 25);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(1365, 608);
+            panelMenu.Size = new Size(1360, 609);
             panelMenu.TabIndex = 0;
-            panelMenu.Paint += panelMenu_Paint;
             // 
             // label6
             // 
             label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label6.AutoSize = true;
             label6.BackColor = Color.Transparent;
-            label6.Font = new Font("ArcadeClassic", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(691, 443);
+            label6.Location = new Point(686, 444);
             label6.Name = "label6";
-            label6.Size = new Size(604, 64);
+            label6.Size = new Size(468, 50);
             label6.TabIndex = 7;
             label6.Text = "4. JUCATORUL CARE RAMANE FARA CARTI \r\nPIERDE JOCUL";
             // 
@@ -77,11 +76,11 @@
             label5.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
-            label5.Font = new Font("ArcadeClassic", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(691, 370);
+            label5.Location = new Point(686, 371);
             label5.Name = "label5";
-            label5.Size = new Size(652, 64);
+            label5.Size = new Size(499, 50);
             label5.TabIndex = 6;
             label5.Text = "3.  JOCUL SE TERMINA IN MOMENTUL IN CARE\r\n UNUL DIN JUCATORI RAMANE FARA CARTI ";
             // 
@@ -90,11 +89,11 @@
             label4.Anchor = AnchorStyles.Right;
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
-            label4.Font = new Font("ArcadeClassic", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(691, 294);
+            label4.Location = new Point(686, 294);
             label4.Name = "label4";
-            label4.Size = new Size(633, 64);
+            label4.Size = new Size(498, 50);
             label4.TabIndex = 5;
             label4.Text = "2.  JUCATORUL CARE ARE CARTEA MAI MARE \r\nCASTIGA RUNDA";
             // 
@@ -103,11 +102,11 @@
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
-            label3.Font = new Font("ArcadeClassic", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(691, 215);
+            label3.Location = new Point(686, 215);
             label3.Name = "label3";
-            label3.Size = new Size(671, 64);
+            label3.Size = new Size(522, 50);
             label3.TabIndex = 4;
             label3.Text = "1.  FIECARE JUCATOR O SA APESE PE BUTONUL\r\n \"DRAW\" PENTRU A GENERA O CARTE";
             // 
@@ -116,14 +115,13 @@
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
-            label2.Font = new Font("ArcadeClassic", 47.9999962F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Microsoft Sans Serif", 47.9999962F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(835, 151);
+            label2.Location = new Point(830, 151);
             label2.Name = "label2";
-            label2.Size = new Size(237, 64);
+            label2.Size = new Size(271, 73);
             label2.TabIndex = 3;
             label2.Text = "REGULI\r\n";
-            label2.Click += label2_Click;
             // 
             // linkLabel1
             // 
@@ -132,13 +130,13 @@
             linkLabel1.AutoSize = true;
             linkLabel1.BackColor = Color.Transparent;
             linkLabel1.BorderStyle = BorderStyle.FixedSingle;
-            linkLabel1.Font = new Font("ArcadeClassic", 47.9999962F, FontStyle.Regular, GraphicsUnit.Point);
+            linkLabel1.Font = new Font("Microsoft Sans Serif", 47.9999962F, FontStyle.Regular, GraphicsUnit.Point);
             linkLabel1.ForeColor = Color.Yellow;
             linkLabel1.LinkBehavior = LinkBehavior.AlwaysUnderline;
             linkLabel1.LinkColor = Color.Purple;
-            linkLabel1.Location = new Point(48, 463);
+            linkLabel1.Location = new Point(48, 464);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(204, 66);
+            linkLabel1.Size = new Size(244, 75);
             linkLabel1.TabIndex = 2;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "START";
@@ -152,23 +150,22 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("ArcadeClassic", 92.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Microsoft Sans Serif", 92.25F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
             label1.Location = new Point(23, 125);
             label1.Name = "label1";
-            label1.Size = new Size(460, 123);
+            label1.Size = new Size(442, 141);
             label1.TabIndex = 0;
             label1.Text = "Razboi";
-            label1.Click += label1_Click;
             // 
             // MainPage
             // 
             ClientSize = new Size(1365, 635);
             Controls.Add(panelMenu);
-            FormBorderStyle = FormBorderStyle.SizableToolWindow;
             MinimumSize = new Size(1365, 635);
             Name = "MainPage";
             Sizable = false;
+            Load += MainPage_Load;
             panelMenu.ResumeLayout(false);
             panelMenu.PerformLayout();
             ResumeLayout(false);
