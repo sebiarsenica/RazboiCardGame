@@ -56,8 +56,8 @@ namespace RazboiCardGame
             playerListener = new Listener(this);
             new Thread(new ThreadStart(playerListener.StartListener)).Start();
             new Thread(new ThreadStart(playerListener.ListenForMessages)).Start();
-           // playerClient = new Client("272-738-043");
-           playerClient = new Client("localhost");
+            playerClient = new Client("272-738-043");
+           //playerClient = new Client("localhost");
 
         }
 
